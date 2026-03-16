@@ -52,6 +52,7 @@ function agregarTarjeta() {
     // Crear el elemento DOM y añadirlo a la galería 
     const elemento = crearElementoTarjeta(nuevaTarjeta);
     galeria.appendChild(elemento);
+    actualizarContador();
 }
 
 // Registrar el evento del botón 
@@ -69,11 +70,9 @@ galeria.addEventListener("click", (e) => {
     tarjetas = tarjetas.filter(t => t.id !== idEliminar);
 
     // Eliminar del DOM 
-    const
-        elementoTarjeta
-            =
-            galeria.querySelector(`[data-id="${idEliminar}"]`);
+    const elementoTarjeta = galeria.querySelector(`[data-id="${idEliminar}"]`);
     if (elementoTarjeta) elementoTarjeta.remove();
+    actualizarContador();
 });
 
 const btnsFiltro = document.querySelectorAll(".btn-filtro");
